@@ -1,0 +1,123 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#570a0a",
+          "foreground": "#ffffff",
+          "leading_diamond": "\ue0b6",
+          "style": "diamond",
+          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}} ",
+          "type": "os"
+        },
+        
+        {
+          "background": "#8f1616",
+          "foreground": "#ffffff",
+          "style": "powerline",
+          "template": " {{ .UserName }}@{{ .HostName }} ",
+          "type": "session"
+        },
+        {
+          "background": "#fff",
+          "foreground": "#8f1616",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "style": "full"
+          },
+          "style": "powerline",
+          "template": " \ue5ff {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "background": "#DF060D",
+          "foreground": "#fff",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "time_format": "06-01-02 15:04:05"
+          },
+          "style": "powerline",
+          "template": " {{ .CurrentDate | date .Format }} ",
+          "type": "time"
+        },
+        {
+          "background": "#570a0a",
+          "foreground": "#ffffff",
+          "powerline_symbol": "\ue0b0",
+          "style": "diamond",
+          "template": " \uf85a CPU: {{ round .PhysicalPercentUsed .Precision }}% | ",
+          "type": "sysinfo"
+        },
+        {
+          "background": "#570a0a",
+          "foreground": "#ffffff",
+          "style": "diamond",
+          "template": "MEM: {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB \uf85a ",
+          "powerline_symbol": "\ue0b0",
+          "type": "sysinfo"
+        },
+        { 
+          "background": "#D1AE08",
+          "foreground": "#8f1616",
+          "powerline_symbol": "\ue0b0",
+          "properties": {
+            "fetch_stash_count": true,
+            "fetch_upstream_icon": true
+          },
+          "style": "powerline",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
+          "type": "git"
+        },
+        {
+          "background": "#355316",
+          "foreground": "#ffffff",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+          "type": "node"
+        },
+        {
+          "background": "#D1AE08",
+          "foreground": "#8f1616",
+          "powerline_symbol": "\ue0b0",
+          "style": "powerline",
+          "template": " \uf0e7 ",
+          "type": "root"
+        },
+        {
+          "background": "#fff",
+          "background_templates": [
+            "{{ if gt .Code 0 }}#fff{{ end }}"
+          ],
+          "foreground": "#000",
+          "leading_diamond": "<transparent,background>\ue0b0</>",
+          "properties": {
+            "always_enabled": true
+          },
+          "style": "diamond",
+          "template": " Go Canada 🍁",
+          "trailing_diamond": "\ue0b0",
+          "type": "exit"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#fff",
+          "style": "plain",
+          "template": "\uf7c6",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
